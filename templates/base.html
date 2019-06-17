@@ -1,0 +1,27 @@
+ <!--DOCTYPE html -->
+
+ <html>
+
+ <body>
+ <br>
+ <div class="container">
+
+     {% block content %}
+
+      {% for obj in qlist %}
+
+ <a href='{{ obj.get_abs_url }}' >{{obj.title}}</a> <br>
+ {{obj.content}}<br>
+ {{obj.get_abs_url}}<br>
+  {{obj.id}}<br>
+ {{obj.timestamp}}<br><br>
+ {% endfor %}
+
+ {%endblock content%}
+
+ </div>
+
+
+ </body>
+
+ </html>
