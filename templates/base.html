@@ -8,7 +8,7 @@
 
      {% block content %}
 
-      {% for obj in qlist %}
+      {% for obj in object_list %}
 
  <a href='{{ obj.get_abs_url }}' >{{obj.title}}</a> <br>
  {{obj.content}}<br>

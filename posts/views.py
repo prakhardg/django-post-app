@@ -1,9 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
+from django.views.generic import ListView
 from django.contrib import messages
 from .forms import PostForm
 # Create your views here.
+
+class List(ListView):
+    template_name = 'base.html'
+    queryset =  Post.objects.all()
+
+
 
 def post_create(request):
     form = PostForm(request.POST or None)
@@ -24,7 +31,7 @@ def post_list(request):
     # x = get_object_or_404(Post, id=7)
     qset = Post.objects.all()
     context = {
-        "qlist":qset,
+        "object_list":qset,
         "title": "list",
     }
     return render(request, "base.html", context)
